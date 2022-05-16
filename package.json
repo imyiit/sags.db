@@ -1,0 +1,25 @@
+{
+  "name": "sags.db",
+  "version": "1.0.0",
+  "description": "Fast JSON database system.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imyiit/sags.db.git"
+  },
+  "keywords": [
+    "DB",
+    "Database",
+    "JSON",
+    "JsonDB"
+  ],
+  "author": "imyiit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imyiit/sags.db/issues"
+  },
+  "homepage": "https://github.com/imyiit/sags.db#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
