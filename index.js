@@ -41,7 +41,7 @@ module.exports = class Sags {
     }
 
     /**
-     * @description Get data
+     * @description Set data
      * @param {String} key Need for save data
      * @param {String|Number|Array|Object|Boolean} data Saved data
      * @returns {boolean}
@@ -188,7 +188,7 @@ module.exports = class Sags {
         return true
     }
 
-    
+
 
 
 }
