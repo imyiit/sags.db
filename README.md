@@ -1,5 +1,13 @@
 # sagsDB
 
+
+![Image](https://img.shields.io/npm/v/sags.db?color=%2351F9C0&label=electus-db) 
+![Image](https://img.shields.io/npm/dt/sags.db.svg?color=%2351FC0&maxAge=3600) 
+#
+![Image](https://nodei.co/npm/sags.db.png?downloads=true&downloadRank=true&stars=true)
+<br>
+
+
 Sags.db is JSON database system.
 
 ## Installation
