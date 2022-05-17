@@ -58,6 +58,7 @@ db.type("sags"); //String
 
 ```js
 db.set("sags.db", "json"); // {sags : {db: "json"} }
+db.get("sags.db"); // json
 ```
 
 
