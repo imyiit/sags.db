@@ -164,7 +164,7 @@ module.exports = class Sags {
     add(key, num = 1) {
         if (typeof num != "number") throw new SagsdbError("Num must be a number!");
         if (typeof key != "string") throw new SagsdbError("Key must be a string!");
-        let item = Number(this.get(key));
+        let item = this.get(key);
         if (!item) item = 0;
         item += num;
         this.set(key, item);
@@ -181,16 +181,12 @@ module.exports = class Sags {
     subtract(key, num = 1) {
         if (typeof num != "number") throw new SagsdbError("Num must be a number!");
         if (typeof key != "string") throw new SagsdbError("Key must be a string!");
-        let item = Number(this.get(key));
+        let item = this.get(key);
         if (!item) item = 0;
         item -= num;
         this.set(key, item);
         return true
     }
-
-
-
-
 }
 
 
