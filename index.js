@@ -229,7 +229,7 @@ module.exports = class Sags {
 
     /**
      * 
-     *@param {String} key Need for find element
+     * @param {String} key Need for find element
      * @param {Number} index Index number
      * @returns {any}
      */
