@@ -23,7 +23,7 @@ module.exports = class Sags {
             }, "/");
         }
 
-        const _folder_path = `${_FOLDER_PATH}/${name}`;
+        const _folder_path = `${_FOLDER_PATH_TO_STRING}/${name}`;
         if (!fs.existsSync(`./${_folder_path}.json`)) {
             fs.writeFileSync(`./${_folder_path}.json`, "{}");
         }
