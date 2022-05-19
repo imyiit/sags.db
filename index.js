@@ -218,6 +218,29 @@ module.exports = class Sags {
             return item;
         }
     }
+
+    /**
+     * 
+     *@param {String} key Need for find element
+     * @param {Number} index Index number
+     * @returns {any}
+     */
+
+    nth(key, index = 0) {
+        index = Number(index)
+        if (isNaN(index)) throw new SagsdbError("Index must be a number!");
+        index = Math.floor(index);
+        const item = this.get(key);
+        if (typeof item == "string" || Array.isArray(item)) {
+            return item.at(index);
+        } else if (typeof item == "number") {
+            return Number(item.toString().at(index));
+        } else if (typeof item == "object" && !Array.isArray(item)) {
+            return item[Object.keys(item).reverse().at(index)];
+        } else {
+            return item;
+        }
+    }
 }
 
 
