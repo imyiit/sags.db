@@ -59,7 +59,6 @@ module.exports = class Sags {
      * @param {String} key Need for delete data
      * @returns {Boolean}
      */
-
     delete(key) {
         if (typeof key != "string") throw new SagsdbError("Key must be a string!");
         const newDb = { ...this.db }
@@ -125,12 +124,10 @@ module.exports = class Sags {
     push(key, data) {
         if (typeof data == "function") throw new SagsdbError("Can't save any function in database!");
         if (typeof key != "string") throw new SagsdbError("Key must be a string!");
-
         if (this.type(key) != "array") {
             this.set(key, [data]);
             return true;
         }
-
         const array = this.get(key);
         array.push(data);
         this.set(key, array);
@@ -160,7 +157,6 @@ module.exports = class Sags {
      * @param {Number} num Number size
      * @returns {boolean}
      */
-
     add(key, num = 1) {
         if (typeof num != "number") throw new SagsdbError("Num must be a number!");
         if (typeof key != "string") throw new SagsdbError("Key must be a string!");
@@ -177,7 +173,6 @@ module.exports = class Sags {
      * @param {Number} num Number size
      * @returns {boolean}
      */
-
     subtract(key, num = 1) {
         if (typeof num != "number") throw new SagsdbError("Num must be a number!");
         if (typeof key != "string") throw new SagsdbError("Key must be a string!");
@@ -186,6 +181,42 @@ module.exports = class Sags {
         item -= num;
         this.set(key, item);
         return true
+    }
+
+    /**
+     * 
+     * @param {String} key Need for find head
+     * @returns {any}
+     */
+    head(key) {
+        const item = this.get(key);
+        if (typeof item == "string" || Array.isArray(item)) {
+            return item[0];
+        } else if (typeof item == "number") {
+            return Number(item.toString()[0]);
+        } else if (typeof item == "object" && !Array.isArray(item)) {
+            return item[Object.keys(item)[0]];
+        } else {
+            return item;
+        }
+    }
+
+    /**
+     * 
+     * @param {String} key Need for find tail
+     * @returns {any}
+     */
+    tail(key) {
+        const item = this.get(key);
+        if (typeof item == "string" || Array.isArray(item)) {
+            return item.at(-1);
+        } else if (typeof item == "number") {
+            return Number(item.toString().at(-1));
+        } else if (typeof item == "object" && !Array.isArray(item)) {
+            return item[Object.keys(item).at(-1)];
+        } else {
+            return item;
+        }
     }
 }
 
