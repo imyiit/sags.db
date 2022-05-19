@@ -1,6 +1,6 @@
 {
   "name": "sags.db",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Fast JSON database system.",
   "main": "index.js",
   "repository": {

@@ -12,8 +12,8 @@ module.exports = class Sags {
      */
     constructor({ name = "db", folder = "", minify = true }) {
         const folder_path = folder ? folder.toString().toLowerCase().split("/").filter(x => x != ".") : "";
-        const _FOLDER_PATH = folder_path ? folder_path.join("/") : "";
-        if (folder && !fs.existsSync(`./${_FOLDER_PATH}`)) {
+        const _FOLDER_PATH_TO_STRING = folder_path ? folder_path.join("/") : "";
+        if (folder && !fs.existsSync(`./${_FOLDER_PATH_TO_STRING}`)) {
             folder_path.reduce((previus, current) => {
                 previus += current + "/";
                 if (!fs.existsSync(`.${previus}`)) {
@@ -22,20 +22,28 @@ module.exports = class Sags {
                 return previus;
             }, "/");
         }
-        if (!fs.existsSync(`./${_FOLDER_PATH}/${name}.json`)) {
-            fs.writeFileSync(`./${_FOLDER_PATH}/${name}.json`, "{}");
+
+        const _folder_path = `${_FOLDER_PATH}/${name}`;
+        if (!fs.existsSync(`./${_folder_path}.json`)) {
+            fs.writeFileSync(`./${_folder_path}.json`, "{}");
         }
 
         /**
          * @private
          */
-        this.db = JSON.parse(fs.readFileSync(`./${_FOLDER_PATH}/${name}.json`));
+        this.db = JSON.parse(fs.readFileSync(`./${_folder_path}.json`));
         /**
          * @private
          */
         this.saveDB = function (data) {
             const json_data = minify ? JSON.stringify(data) : JSON.stringify(data, null, 2);
-            return fs.writeFileSync(`./${_FOLDER_PATH}/${name}.json`, json_data);
+            return fs.writeFileSync(`./${_folder_path}.json`, json_data);
+        }
+        /**
+         * @private
+         */
+        this.dbSize = function () {
+            return fs.statSync(`./${_folder_path}.json`).size;
         }
 
     }
@@ -225,7 +233,6 @@ module.exports = class Sags {
      * @param {Number} index Index number
      * @returns {any}
      */
-
     nth(key, index = 0) {
         index = Number(index)
         if (isNaN(index)) throw new SagsdbError("Index must be a number!");
@@ -240,6 +247,14 @@ module.exports = class Sags {
         } else {
             return item;
         }
+    }
+
+    /**
+     * @description Database kb size
+     * @returns {Number}
+     */
+    dbSize() {
+        return Math.ceil(this.dbSize() / (1024));
     }
 }
 
