@@ -52,7 +52,7 @@ module.exports = class Sags {
      * @description Set data
      * @param {String} key Need for save data
      * @param {String|Number|Array|Object|Boolean} data Saved data
-     * @returns {boolean}
+     * @returns {Boolean}
      */
     set(key, data) {
         if (typeof data == "function") throw new SagsdbError("Can't save any function in database!");
@@ -120,7 +120,7 @@ module.exports = class Sags {
      */
     deleteAll() {
         this.saveDB({});
-        return true
+        return true;
     }
 
     /**
@@ -147,7 +147,7 @@ module.exports = class Sags {
     * @description Unpush an element from array
     * @param {String} key Need for unpush data from array
     * @param {String|Number|Array|Object|Boolean} data Unpushing item
-    * @returns {boolean}
+    * @returns {Boolean}
     */
     unpush(key, data) {
         if (typeof data == "function") throw new SagsdbError("Can't save any function in database!");
@@ -163,7 +163,7 @@ module.exports = class Sags {
      * 
      * @param {String} key Need for add number
      * @param {Number} num Number size
-     * @returns {boolean}
+     * @returns {Boolean}
      */
     add(key, num = 1) {
         if (typeof num != "number") throw new SagsdbError("Num must be a number!");
@@ -179,7 +179,7 @@ module.exports = class Sags {
      * 
      * @param {String} key Need for subtract number
      * @param {Number} num Number size
-     * @returns {boolean}
+     * @returns {Boolean}
      */
     subtract(key, num = 1) {
         if (typeof num != "number") throw new SagsdbError("Num must be a number!");
@@ -200,13 +200,14 @@ module.exports = class Sags {
         const item = this.get(key);
         if (typeof item == "string" || Array.isArray(item)) {
             return item[0];
-        } else if (typeof item == "number") {
-            return Number(item.toString()[0]);
-        } else if (typeof item == "object" && !Array.isArray(item)) {
-            return item[Object.keys(item)[0]];
-        } else {
-            return item;
         }
+        if (typeof item == "number") {
+            return Number(item.toString()[0]);
+        }
+        if (typeof item == "object" && !Array.isArray(item)) {
+            return item[Object.keys(item)[0]];
+        }
+        return item;
     }
 
     /**
@@ -218,13 +219,14 @@ module.exports = class Sags {
         const item = this.get(key);
         if (typeof item == "string" || Array.isArray(item)) {
             return item.at(-1);
-        } else if (typeof item == "number") {
-            return Number(item.toString().at(-1));
-        } else if (typeof item == "object" && !Array.isArray(item)) {
-            return item[Object.keys(item).at(-1)];
-        } else {
-            return item;
         }
+        if (typeof item == "number") {
+            return Number(item.toString().at(-1));
+        }
+        if (typeof item == "object" && !Array.isArray(item)) {
+            return item[Object.keys(item).at(-1)];
+        }
+        return item;
     }
 
     /**
@@ -240,13 +242,14 @@ module.exports = class Sags {
         const item = this.get(key);
         if (typeof item == "string" || Array.isArray(item)) {
             return item.at(index);
-        } else if (typeof item == "number") {
-            return Number(item.toString().at(index));
-        } else if (typeof item == "object" && !Array.isArray(item)) {
-            return item[Object.keys(item).reverse().at(index)];
-        } else {
-            return item;
         }
+        if (typeof item == "number") {
+            return Number(item.toString().at(index));
+        }
+        if (typeof item == "object" && !Array.isArray(item)) {
+            return item[Object.keys(item).reverse().at(index)];
+        }
+        return item;
     }
 
     /**
