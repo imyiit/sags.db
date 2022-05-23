@@ -31,11 +31,11 @@ If u dont wanna minify set "**minify**" to false.
 ```js
 const db = new sagsdb({ name: "database", folder: "foldername", minify: true });
 ```
-## or
+**or**
 ```js
 const db = new sagsdb({ name: "database", folder: "folder/database"});
 ```
-## or
+**or**
 ```js
 const db = new sagsdb({ name: "database"});
 ```
@@ -51,7 +51,7 @@ const itemdb = new sagsdb({ name: "itemdb"});
 ### <i class="fa-solid fa-terminal"></i> **COMMANDS**
 <br>
 
- **Set** 
+ ## **Set** 
 
 Key must be a **String** or **Number**.
 ```js
@@ -79,7 +79,7 @@ db.get("key"); // -> apple
 
 <br><br>
 
-**Delete**
+## **Delete**
 
 Delete item from database.
 
@@ -93,7 +93,7 @@ db.get("key"); // -> undefined
 
 <br><br>
 
-**Type**
+## **Type**
 
 Check type for this key.
 
@@ -114,7 +114,7 @@ db.type("number"); // -> number
 
 <br><br>
 
-**Has**
+## **Has**
 
 Check database for this key.
 
@@ -126,7 +126,7 @@ db.has("another"); // -> false
 ```
 <br><br>
 
-**Push**
+## **Push**
 
 Push item in **Array**.
 
@@ -140,7 +140,7 @@ db.get("array"); // -> ["apple", "banana"]
 
 <br><br>
 
-**Unpush**
+## **Unpush**
 
 Unpush item from **Array**.
 
@@ -154,7 +154,7 @@ db.get("array"); // -> []
 
 <br><br>
 
-**Add**
+## **Add**
 
 Add number to **number** value.
 
@@ -176,7 +176,7 @@ db.add("number", "asd"); // return Error
 ```
 <br><br>
 
-**Subtract**
+## **Subtract**
 
 Subtract number to **number** value.
 
@@ -198,7 +198,7 @@ db.subtract("number", "asd"); // return Error
 ```
 <br><br>
 
-**Head**
+## **Head**
 
 Get value **first** item.
 
@@ -218,7 +218,7 @@ db.head("object"); // -> 1
 ```
 <br><br>
 
-**Tail**
+## **Tail**
 
 Get value **last** item.
 
@@ -238,7 +238,7 @@ db.head("object"); // -> 2
 ```
 <br><br>
 
-**Nth**
+## **Nth**
 
 Get value with **index**.
 
@@ -259,7 +259,7 @@ db.nth("object", 1); // -> 2
 
 <br><br>
 
-**All**
+## **All**
 
 Return all **Database** object.
 
@@ -271,7 +271,7 @@ db.all("key"); // -> {"key" : "apple", "number": 1}
 
 <br><br>
 
-**DeleteAll**
+## **DeleteAll**
 
 Delete **all** database.
 
@@ -284,7 +284,7 @@ db.get("key"); // -> undefined
 
 <br><br>
 
-**Dbsize**
+## **Dbsize**
 
 Get database **size**.
 
