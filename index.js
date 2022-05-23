@@ -154,7 +154,11 @@ module.exports = class Sags {
         if (typeof key != "string") throw new SagsdbError("Key must be a string!");
         if (this.type(key) != "array") return false;
         const array = this.get(key);
-        _ld.remove(array, function (n) { return n == data });
+        _ld.remove(array, function (n) { return n === data });
+        if (array.length == 0) {
+            this.delete(key);
+            return true;
+        }
         this.set(key, array);
         return true;
     }
