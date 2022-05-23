@@ -67,7 +67,7 @@ db.set("key", test); // -> return Error
 ```
 <br><br>
 
-**Get**
+## **Get**
 
 Key must be a **String** or **Number**.
 
