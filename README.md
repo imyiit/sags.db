@@ -204,7 +204,7 @@ Get value **first** item.
 
 ```js
 db.set("string", "str"); // -> true
-db.head("number"); // -> "s"
+db.head("string"); // -> "s"
 
 db.set("number", 321); // -> true
 db.head("number"); // -> 3
@@ -293,6 +293,15 @@ Number type is **kilobyte** (kb).
 ```js
 db.set("key", "apple"); // -> true
 db.dbSize(); // -> 15
+```
+
+## **Extra**
+
+U can set object in object.
+
+```js
+db.set("key.value","apple"); // -> true
+db.get("key"); // => {key: { value : "apple" } }
 ```
 
 ## License
