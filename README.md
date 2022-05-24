@@ -224,7 +224,7 @@ Get value **last** item.
 
 ```js
 db.set("string", "str"); // -> true
-db.head("number"); // -> "r"
+db.head("string"); // -> "r"
 
 db.set("number", 321); // -> true
 db.head("number"); // -> 1
@@ -244,7 +244,7 @@ Get value with **index**.
 
 ```js
 db.set("string", "str"); // -> true
-db.nth("number", 1); // -> "t"
+db.nth("string", 1); // -> "t"
 
 db.set("number", 321); // -> true
 db.nth("number", 1); // -> 2
@@ -266,7 +266,7 @@ Return all **Database** object.
 ```js
 db.set("key", "apple");
 db.set("number", 1);
-db.all("key"); // -> {"key" : "apple", "number": 1}
+db.all(); // -> {"key" : "apple", "number": 1}
 ```
 
 <br><br>
