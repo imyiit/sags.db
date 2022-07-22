@@ -13,7 +13,12 @@ interface Options {
   minify: boolean;
 }
 
-type data = string | Object | Array | number | boolean;
+type data =
+  | string
+  | Object
+  | Array<string | Object | number | boolean>
+  | number
+  | boolean;
 
 declare class Sags {
   constructor(options: Options);
