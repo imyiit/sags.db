@@ -224,16 +224,16 @@ Get value **last** item.
 
 ```js
 db.set("string", "str"); // -> true
-db.head("string"); // -> "r"
+db.tail("string"); // -> "r"
 
 db.set("number", 321); // -> true
-db.head("number"); // -> 1
+db.tail("number"); // -> 1
 
 db.set("array", [1, 2, 3]); // -> true
-db.head("array"); // -> 3
+db.tail("array"); // -> 3
 
 db.set("object", {a : 1, b: 2}); // -> true
-db.head("object"); // -> 2
+db.tail("object"); // -> 2
 
 ```
 <br><br>
