@@ -12,7 +12,7 @@ export class Sags {
   set(key: string, data: any): boolean;
   delete(key: string): boolean;
   get(key: string): any;
-  type(key: string): type;
+  type(key: string): any;
   has(key: string): boolean;
   all(): any;
   deleteAll(): boolean;
@@ -24,5 +24,4 @@ export class Sags {
   tail(key: string): any;
   nth(key: string, index: number): any;
   dbSize(): number;
-  
 }
