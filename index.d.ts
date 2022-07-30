@@ -1,19 +1,20 @@
 interface Options {
   /**
+   * The name of the database file
    * @default db
    */
-  name: string;
+  name?: string;
   /**
+   * The relative path of folder for database file
    * @default ./
    */
-  folder: string;
+  folder?: string;
   /**
+   * Whether to minify the database file.
    * @default true
    */
-  minify: boolean;
+  minify?: boolean;
 }
-
-type data = any;
 
 declare class Sags {
   constructor(options: Options);
@@ -24,78 +25,83 @@ declare class Sags {
   private saveDB(data: object): void;
 
   /**
-   * @param key Need for add number
-   * @param num Number size
+   * @param key Location of key in the key hierarchy
    */
   add(key: string, num: number): boolean;
   /**
-   * Get all database
+   * @returns All database
    */
   all(): object;
   /**
-   * Database kb size
+   * Database size in kb
    */
   dbSize(): number;
   /**
-   * Delete data
-   * @param key Need for delete data
+   * Deletes specified data
+   * @param key Location of key in the key hierarchy
    */
   delete(key: string): boolean;
   /**
-   * Delete all database
+   * Deletes all database
    */
   deleteAll(): boolean;
   /**
-   * Get data
-   * @param key Need for get data
+   * Gets specified data
+   * @param key Location of key in the key hierarchy
    */
-  get(key: string): data;
+  get(key: string): any;
   /**
-   * Checking database for this data
-   * @param key Need for check has data
+   * Checking whether the key hierarchy has given key
+   * @param key Location of key in the key hierarchy
    */
   has(key: string): boolean;
   /**
-   * @param key Need for find head
+   * @param key Location of key in the key hierarchy
    */
-  head(key: string): data;
+  head(key: string): any;
   /**
-   * @param key Need for find element
-   * @param index Index number
+   * @param key Location of key in the key hierarchy
    */
-  nth(key: string, index: number): data;
+  nth(key: string, index: number): any;
   /**
-   * Push data to array
-   * @param key Need for push data
-   * @param data Pushing item
+   * Pushes given data to an array
+   * @param key Location of key in the key hierarchy
    */
-  push(key: string, data: data): boolean;
+  push(key: string, data: any): boolean;
   /**
-   * Set data
-   * @param key Need for save data
-   * @param data Saved data
+   * Sets specified data *(Overwrites existing data if exists)*
+   * @param key Location of key in the key hierarchy
    */
-  set(key: string, data: data): boolean;
+  set(key: string, data: any): boolean;
   /**
-   * @param key Need for subtract number
-   * @param num Number size
+   * @param key Location of key in the key hierarchy
    */
   subtract(key: string, num: number): boolean;
   /**
-   * @param key Need for find tail
+   * @param key Location of key in the key hierarchy
    */
-  tail(key: string): data;
+  tail(key: string): any;
   /**
-   * Checking data type
-   * @param key Need for check type of data
+   * Checks type of data
+   * @param key Location of key in the key hierarchy
    */
-  type(key: string): data;
+  type(
+    key: string
+  ):
+    | "bigint"
+    | "boolean"
+    | "function"
+    | "number"
+    | "object"
+    | "string"
+    | "symbol"
+    | "undefined"
+    | "array";
   /**
-   * Unpush an element from array
-   * @param key Need for unpush data from array
-   * @param data Unpushing item
+   * Unpushes given data from an array
+   * @param key Location of key in the key hierarchy
    */
-  unpush(key: string, data: data): boolean;
+  unpush(key: string, data: any): boolean;
 }
 
 export = Sags;
