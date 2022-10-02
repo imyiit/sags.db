@@ -49,7 +49,7 @@ declare class Sags {
    * Gets specified data
    * @param key Location of key in the key hierarchy
    */
-  get(key: string): string | object | number | undefined;
+  get(key: string): any;
   /**
    * Checking whether the key hierarchy has given key
    * @param key Location of key in the key hierarchy
@@ -58,11 +58,11 @@ declare class Sags {
   /**
    * @param key Location of key in the key hierarchy
    */
-  head(key: string): string | object | number | undefined;
+  head(key: string): any;
   /**
    * @param key Location of key in the key hierarchy
    */
-  nth(key: string, index: number): string | object | number | undefined;
+  nth(key: string, index: number): any;
   /**
    * Pushes given data to an array
    * @param key Location of key in the key hierarchy
@@ -80,7 +80,7 @@ declare class Sags {
   /**
    * @param key Location of key in the key hierarchy
    */
-  tail(key: string): string | object | number | undefined;
+  tail(key: string): any;
   /**
    * Checks type of data
    * @param key Location of key in the key hierarchy
